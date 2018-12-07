@@ -28,7 +28,7 @@ import Intercom
 Intercom.shared.setup(accessToken: "YOUR TOKEN")
 
 let event = IntercomEvent(eventName: "invited-friend", userId: "314159", metaData: nil)
-Intercom.shared.events.submit(event)
+Intercom.shared.events.submit(event, completion: nil)
 ```
 
 ### More documentation
