@@ -8,9 +8,9 @@
 
 import Foundation
 
-class IntercomUserMethods {
+public class IntercomUserMethods {
 
-    func updateLastSeen(_ userId: String, completion: IntercomConnection.Completion?) {
+    public func updateLastSeen(_ userId: String, completion: IntercomConnection.Completion?) {
 
         let json: [String: Any] = [
             "user_id": userId,
@@ -27,7 +27,7 @@ class IntercomUserMethods {
 
     }
 
-    func update(_ intercomUser: IntercomUser, completion: IntercomConnection.Completion?) {
+    public func update(_ intercomUser: IntercomUser, completion: IntercomConnection.Completion?) {
 
         let encodedData = try? JSONEncoder().encode(intercomUser)
 

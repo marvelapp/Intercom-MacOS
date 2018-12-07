@@ -8,9 +8,9 @@
 
 import Foundation
 
-class IntercomEventMethods {
+public class IntercomEventMethods {
 
-    func submit(_ intercomEvent: IntercomEvent, completion: IntercomConnection.Completion?) {
+    public func submit(_ intercomEvent: IntercomEvent, completion: IntercomConnection.Completion?) {
 
         let encodedData = try? JSONEncoder().encode(intercomEvent)
 

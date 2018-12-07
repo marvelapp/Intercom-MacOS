@@ -47,7 +47,7 @@ public struct IntercomUser: Codable {
 
 }
 
-enum IntercomUserType: String, Codable {
+public enum IntercomUserType: String, Codable {
     case user = "user"
     case contact = "contact"
 }

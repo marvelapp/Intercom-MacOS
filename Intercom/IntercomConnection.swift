@@ -8,9 +8,9 @@
 
 import Foundation
 
-class IntercomConnection {
+public class IntercomConnection {
 
-    typealias Completion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
+    public typealias Completion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
 
     var request: URLRequest
     var session: URLSession
