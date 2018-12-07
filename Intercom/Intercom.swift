@@ -10,7 +10,7 @@ import Foundation
 
 public class Intercom {
 
-    static let shared = Intercom()
+    public static let shared = Intercom()
 
     var accessToken: String?
     var isSetup = false
