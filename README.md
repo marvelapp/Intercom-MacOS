@@ -16,9 +16,9 @@ Before using your token make sure you tick off all the permissions you don't nee
 
 ### Installation: Carthage
 
-1.  Add `github "maximedegreve/Intercom-MacOS"` to your Cartfile.
+1.  Add `github "marvelapp/Intercom-MacOS"` to your Cartfile.
 2.  Run carthage update.
-3.  Go to your Xcode project's "General" settings. Drag `maximedegreve/Intercom-MacOS.framework` from `Carthage/Build/macOS` to the "Embedded Binaries" section. Make sure “Copy items if needed” is selected and click Finish.
+3.  Go to your Xcode project's "General" settings. Drag `marvelapp/Intercom-MacOS.framework` from `Carthage/Build/macOS` to the "Embedded Binaries" section. Make sure “Copy items if needed” is selected and click Finish.
 
 ### Example
 
