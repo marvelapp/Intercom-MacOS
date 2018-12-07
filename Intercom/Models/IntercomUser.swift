@@ -26,7 +26,7 @@ public struct IntercomUser: Codable {
         case customAttributes = "custom_attributes"
     }
 
-    init(type: IntercomUserType?, id: String?, userId: String?, email: String?, phone: String?, customAttributes: JSONValue?){
+    public init(type: IntercomUserType?, id: String?, userId: String?, email: String?, phone: String?, customAttributes: JSONValue?){
         self.type = type
         self.id = id
         self.userId = userId

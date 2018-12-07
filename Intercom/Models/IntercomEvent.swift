@@ -22,7 +22,7 @@ public struct IntercomEvent: Codable {
         case metaData = "metadata"
     }
 
-    init(eventName: String, userId: String, metaData: JSONValue?){
+    public init(eventName: String, userId: String, metaData: JSONValue?){
         self.eventName = eventName
         self.userId = userId
         self.metaData = metaData

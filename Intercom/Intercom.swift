@@ -20,7 +20,7 @@ public class Intercom {
         self.isSetup = true
     }
 
-    let users = IntercomUserMethods()
-    let events = IntercomEventMethods()
+    public let users = IntercomUserMethods()
+    public let events = IntercomEventMethods()
 
 }
