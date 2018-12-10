@@ -26,13 +26,20 @@ public struct IntercomUser: Codable {
         case customAttributes = "custom_attributes"
     }
 
-    public init(type: IntercomUserType?, id: String?, userId: String?, email: String?, phone: String?, customAttributes: JSONValue?){
+    public init(type: IntercomUserType?, id: String?, userId: String?, email: String?, phone: String?, customAttributes: [String: Any]?) throws {
         self.type = type
         self.id = id
         self.userId = userId
         self.email = email
         self.phone = phone
-        self.customAttributes = customAttributes
+        
+        if let customAttributes = customAttributes {
+            let decoder = JSONDecoder()
+            let jsonData = try JSONSerialization.data(withJSONObject:customAttributes)
+            let values = try decoder.decode(JSONValue.self, from: jsonData)
+            self.customAttributes = values
+        }
+
     }
 
     public init(from decoder: Decoder) throws {

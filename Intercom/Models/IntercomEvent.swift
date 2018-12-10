@@ -22,10 +22,17 @@ public struct IntercomEvent: Codable {
         case metaData = "metadata"
     }
 
-    public init(eventName: String, userId: String, metaData: JSONValue?){
+    public init(eventName: String, userId: String, metaData: [String: Any]?) throws {
         self.eventName = eventName
         self.userId = userId
-        self.metaData = metaData
+
+        if let metaData = metaData {
+            let decoder = JSONDecoder()
+            let jsonData = try JSONSerialization.data(withJSONObject:metaData)
+            let values = try decoder.decode(JSONValue.self, from: jsonData)
+            self.metaData = values
+        }
+        
     }
 
     public init(from decoder: Decoder) throws {

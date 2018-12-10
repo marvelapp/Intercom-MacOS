@@ -8,8 +8,8 @@
 
 import Foundation
 
-public enum JSONValue: Codable {
-    public func encode(to encoder: Encoder) throws {
+enum JSONValue: Codable {
+    func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
         case .bool(let v):
@@ -40,7 +40,7 @@ public enum JSONValue: Codable {
     case dict([String: JSONValue])
     case array([JSONValue])
 
-    public init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if let value = try? container.decode(String.self) {
             self = .string(value)
