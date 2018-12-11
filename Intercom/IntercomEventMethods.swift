@@ -12,7 +12,14 @@ public class IntercomEventMethods {
 
     public func submit(_ intercomEvent: IntercomEvent, completion: IntercomConnection.Completion?) {
 
-        let encodedData = try? JSONEncoder().encode(intercomEvent)
+        let encodedData: Data
+
+        do {
+            encodedData = try JSONEncoder().encode(intercomEvent)
+        } catch {
+            completion?(nil, nil, error)
+            return
+        }
 
         let connection = IntercomConnection(endpoint: .events)
         connection.request.httpMethod = "POST"

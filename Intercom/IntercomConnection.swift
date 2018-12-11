@@ -15,13 +15,12 @@ public class IntercomConnection {
     var request: URLRequest
     var session: URLSession
 
-    init(endpoint: IntercomEndpoint) {
+    init(endpoint: IntercomEndpoint, urlSession: URLSession = .shared) {
 
         let accessToken = Intercom.shared.accessToken ?? ""
-        let config = URLSessionConfiguration.default
         let url = URL(string: endpoint.url)!
 
-        self.session = URLSession(configuration: config)
+        self.session = urlSession
         self.request = URLRequest(url: url)
         self.request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         self.request.addValue("application/json", forHTTPHeaderField: "Accept")

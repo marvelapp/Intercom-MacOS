@@ -17,7 +17,14 @@ public class IntercomUserMethods {
             "update_last_request_at": true
         ]
 
-        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+        let jsonData: Data
+
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+        } catch {
+            completion?(nil, nil, error)
+            return
+        }
 
         let connection = IntercomConnection(endpoint: .users)
         connection.request.httpMethod = "POST"
@@ -29,7 +36,14 @@ public class IntercomUserMethods {
 
     public func update(_ intercomUser: IntercomUser, completion: IntercomConnection.Completion?) {
 
-        let encodedData = try? JSONEncoder().encode(intercomUser)
+        let encodedData: Data
+
+        do {
+            encodedData = try JSONEncoder().encode(intercomUser)
+        } catch {
+            completion?(nil, nil, error)
+            return
+        }
 
         let connection = IntercomConnection(endpoint: .users)
         connection.request.httpMethod = "POST"
